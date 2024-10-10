@@ -3,6 +3,11 @@ import pandas as pd
 import math
 from pathlib import Path
 
+
+x = st.slider('x')
+st.write(x, 'squared is', x * x)
+
+
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
     page_title='GDP dashboard',
@@ -11,7 +16,7 @@ st.set_page_config(
 
 # -----------------------------------------------------------------------------
 # Declare some useful functions.
-
+'''
 @st.cache_data
 def get_gdp_data():
     """Grab GDP data from a CSV file.
@@ -63,17 +68,10 @@ gdp_df = get_gdp_data()
 # Draw the actual page
 
 # Set the title that appears at the top of the page.
-'''
-# :earth_americas: GDP dashboard
 
-Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
-notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
-But it's otherwise a great (and did I mention _free_?) source of data.
-'''
 
 # Add some spacing
-''
-''
+
 
 min_value = gdp_df['Year'].min()
 max_value = gdp_df['Year'].max()
@@ -94,9 +92,7 @@ selected_countries = st.multiselect(
     countries,
     ['DEU', 'FRA', 'GBR', 'BRA', 'MEX', 'JPN'])
 
-''
-''
-''
+
 
 # Filter the data
 filtered_gdp_df = gdp_df[
@@ -107,7 +103,6 @@ filtered_gdp_df = gdp_df[
 
 st.header('GDP over time', divider='gray')
 
-''
 
 st.line_chart(
     filtered_gdp_df,
@@ -116,8 +111,6 @@ st.line_chart(
     color='Country Code',
 )
 
-''
-''
 
 
 first_year = gdp_df[gdp_df['Year'] == from_year]
@@ -125,7 +118,7 @@ last_year = gdp_df[gdp_df['Year'] == to_year]
 
 st.header(f'GDP in {to_year}', divider='gray')
 
-''
+
 
 cols = st.columns(4)
 
@@ -149,3 +142,4 @@ for i, country in enumerate(selected_countries):
             delta=growth,
             delta_color=delta_color
         )
+'''
